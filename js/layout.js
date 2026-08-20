@@ -37,11 +37,11 @@ function ringo_do_side_button_1() {
         return res.json();
     }).then(function(text) {
         let data = '';
-        for(let for_a = 0; for_a < text.length && for_a < 14; for_a++) {
-            if(text[for_a][6] === '') {
-                data += '<li><a class="recent-item" href="/w/'+ ringo_do_xss_encode(text[for_a][1]) + '">';
-                data += '<span class="recent-time">' + ringo_do_xss_encode(text[for_a][2].slice(11, -3)) + '</span>';
-                data += '<span class="recent-title">' + ringo_do_xss_encode(text[for_a][1]) + '</span></a></li>';
+        for(let for_a = 0; for_a < text["data"].length && for_a < 14; for_a++) {
+            if(text["data"][for_a][6] === '') {
+                data += '<li><a class="recent-item" href="/w/'+ ringo_do_xss_encode(text["data"][for_a][1]) + '">';
+                data += '<span class="recent-time">' + ringo_do_xss_encode(text["data"][for_a][2].slice(11, -3)) + '</span>';
+                data += '<span class="recent-title">' + ringo_do_xss_encode(text["data"][for_a][1]) + '</span></a></li>';
             } else {
                 data += '<li>[Unavailable Content]</li>';
             }
@@ -58,10 +58,10 @@ function ringo_do_side_button_2() {
         return res.json();
     }).then(function(text) {
         let data = '';
-        for(let for_a = 0; for_a < text.length && for_a < 6; for_a++) {
-            data += '<li><a class="recent-item" href="/thread/' + ringo_do_url_encode(text[for_a][3]) + '">';
-            data += '<span class="recent-time">' + ringo_do_xss_encode(text[for_a][2].slice(11, -3)) + '</span>';
-            data += '<span class="recent-title">' + ringo_do_xss_encode(text[for_a][1]) + '</span></a></li>';
+        for(let for_a = 0; for_a < text["data"].length && for_a < 6; for_a++) {
+            data += '<li><a class="recent-item" href="/thread/' + ringo_do_url_encode(text["data"][for_a][3]) + '">';
+            data += '<span class="recent-time">' + ringo_do_xss_encode(text["data"][for_a][2].slice(11, -3)) + '</span>';
+            data += '<span class="recent-title">' + ringo_do_xss_encode(text["data"][for_a][1]) + '</span></a></li>';
         }
         document.getElementById('sidebar-2-list').innerHTML = data;
     }).catch(function() {
